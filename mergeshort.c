@@ -8,7 +8,7 @@ int a[]={8,6,4,9,7,5,2,3};
 int temp[8];
 
 int main(){
-    time_t start , end;
+    float start , end;
     start = clock();
     Msort(a, temp, 0,7);
     for(int i=0; i<8; i++){
@@ -16,10 +16,7 @@ int main(){
     }
 
     end = clock();
-    printf("\nExecution is %f", (float)end - (float)start);
-
-    //int ticks = clock();
-    //printf("Execution time is: %f", (float)ticks/ CLOCKS_PER_SEC);
+    printf("\nExecution is %f sec", (end - start)/CLOCKS_PER_SEC);
     return 0;
 }
 

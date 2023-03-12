@@ -23,9 +23,9 @@ void counting_sort(int arr[], int size){
         temp[i] = temp[i] + temp[i-1];
     }
     for(i=size-1; i>=0; i--){
-        temp[arr[i]]--;
-        tmp = temp[arr[i]];
-        output[tmp] = arr[i]; 
+        //temp[arr[i]]--;
+        //tmp = temp[arr[i]];
+        output[--temp[arr[i]]] = arr[i]; 
     }
     for(i=0; i<size; i++){
         arr[i] = output[i];

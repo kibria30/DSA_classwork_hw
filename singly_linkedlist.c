@@ -14,6 +14,7 @@ void add_at_pos(struct node *head, int data, int pos);
 void del_first(struct node **head_ref);
 void del_last(struct node **head);
 void del_anypos(struct node **head_ref, int pos);
+void del_linkedlist(struct node **head_ref);
 
 int main(){
     struct node *head = NULL;
@@ -33,10 +34,27 @@ int main(){
     del_anypos(&head, 5);
     del_first(&head);
     del_last(&head);
+    del_linkedlist(&head);
 
     int totalnodes = calculateNode(head); 
     printf("Number of nodes in the linkedlist is: %d\n", totalnodes);
     printLinkedlist(head);
+}
+
+void del_linkedlist(struct node **head_ref){
+    if(*head_ref==NULL){
+        printf("Linkedlist is empty!!");
+    }
+    else{
+        struct node *temp;
+        temp = *head_ref;
+        while(temp){
+            temp = temp->link;
+            free(*head_ref);
+            *head_ref = temp;
+        }
+        printf("The whole linkedlist is deleted successfully.");
+    }
 }
 
 void del_anypos(struct node **head_ref, int pos){
